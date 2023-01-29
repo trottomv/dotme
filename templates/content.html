@@ -1,0 +1,134 @@
+{% macro about() %}
+<div class="user-details">
+  <h1 class="text-uppercase">Who am I</h1>
+  <p>{{ config.extra.user_description }}</p>
+  <p>
+    {{ config.extra.user_position }} @<a
+      href="{{ config.extra.user_company_url }}"
+      target="_blank"
+      >{{ config.extra.user_company }}</a
+    >
+  </p>
+  <img class="avatar rounded-circle" src="img/trotto-bn.jpeg" alt="" />
+  <h2>Matteo Vitali</h2>
+  <h3>[aka trotto]</h3>
+  <div class="social-icons">
+    <a href="{{ config.extra.user_linkedin }}" target="_blank">
+      <i class="fa fa-linkedin"></i>
+    </a>
+    <a href="{{ config.extra.user_github }}" target="_blank">
+      <i class="fa fa-github"></i>
+    </a>
+    <a href="{{ config.extra.user_gitlab }}" target="_blank">
+      <i class="fa fa-gitlab"></i>
+    </a>
+    <a href="{{ config.extra.user_mastodon }}" target="_blank">
+      <i class="fa fa-mastodon"></i>
+    </a>
+    <a href="{{ config.extra.user_twitter }}" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+    <a href="mailto:{{ config.extra.user_email }}">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </div>
+  <p>
+    <i>1337:1337</i>
+  </p>
+</div>
+{% endmacro about %} {% macro myexpertise() %}
+<div class="user-details">
+  <h1 class="text-uppercase">My Expertise</h1>
+</div>
+<div class="user">
+  <div class="tech">
+    <span class="fa-stack fa-1x">
+      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+      <i class="fa fa-code fa-stack-1x fa-inverse"></i>
+    </span>
+    <h3>Coding Skills</h3>
+    <i class="devicon-python-plain" title="python"></i>
+    <i class="devicon-django-plain colored" title="django"></i>
+    <i class="devicon-rust-plain colored" title="rust lang"></i>
+    <i class="devicon-ruby-plain colored" title="ruby"></i>
+    <i class="devicon-javascript-plain colored" title="javascript"></i>
+    <i class="devicon-vuejs-plain colored" title="vuejs"></i>
+    <i class="devicon-html5-plain colored" title="html"></i>
+    <i class="devicon-css3-plain colored" title="css"></i>
+    <!-- <p>python | django | rust | ruby | javascript | vuejs | html | css</p> -->
+  </div>
+  <div class="tech">
+    <span class="fa-stack fa-1x">
+      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+      <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+    </span>
+    <h3>My Setup</h3>
+    <i class="devicon-linux-plain colored" title="linux"></i>
+    <i class="devicon-debian-plain colored" title="debian"></i>
+    <i class="devicon-ubuntu-plain colored" title="ubuntu"></i>
+    <i class="devicon-vscode-plain colored" title="vscode"></i>
+    <i class="devicon-vim-plain colored" title="vim"></i>
+    <i class="devicon-firefox-plain colored" title="firefox"></i>
+    <i class="devicon-inkscape-plain colored" title="inkscape"></i>
+    <i class="devicon-gimp-plain colored" title="gimp"></i>
+    <!-- <p>linux | debian | ubuntu | vscode | vim | firefox | inkscape | gimp</p> -->
+  </div>
+  <div class="tech">
+    <span class="fa-stack fa-1x">
+      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+      <i class="fa fa-server fa-stack-1x fa-inverse"></i>
+    </span>
+    <h3>Working Tools</h3>
+    <i class="devicon-docker-plain colored" title="docker"></i>
+    <i class="devicon-kubernetes-plain colored" title="kubernetes"></i>
+    <i class="devicon-terraform-plain colored" title="terraform"></i>
+    <i class="devicon-postgresql-plain colored" title="postgresql"></i>
+    <i class="devicon-git-plain colored" title="git"></i>
+    <i class="devicon-grafana-original colored" title="grafana"></i>
+    <i class="devicon-prometheus-original colored" title="prometheus"></i>
+    <i class="devicon-github-plain colored" title="github"></i>
+    <i class="devicon-gitlab-plain colored" title="gitlab"></i>
+    <!-- <p>docker | kubernetes | terrafom | postgresql | git | grafana | prometheus | github | gitlab</p> -->
+  </div>
+</div>
+{% endmacro myexpertise %} {% macro projects() %}
+<div class="user-details">
+  <h1>Featured Projects</h1>
+</div>
+<div class="user-projects">
+  <div class="images-right">
+    <img alt="mountains" src="{{ config.base_url ~ '/img/mountains.jpg' }}" />
+  </div>
+  <div class="contents">
+    <h3>Project Title</h3>
+    <ul>
+      <li>Featured Skills</li>
+    </ul>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </p>
+    <a class="project-link" href="#">Check it out</a>
+  </div>
+</div>
+<div class="user-projects">
+  <div class="images-left">
+    <img alt="mountains" src="{{ config.base_url ~ '/img/skate.jpg' }}" />
+  </div>
+  <div class="contents-right">
+    <h3>Project Title</h3>
+    <ul>
+      <li>Featured Skills</li>
+    </ul>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </p>
+    <a class="project-link" href="#">Check it out</a>
+  </div>
+</div>
+{% endmacro projects %}
