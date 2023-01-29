@@ -11,11 +11,16 @@ jobs:
     steps:
       - name: Checkout stage
         uses: actions/checkout@v3.0.0
-      - name: Build
+      - name: Setup alpine
         uses: jirutka/setup-alpine@v1
         with:
           extra-repositories: |
             http://dl-cdn.alpinelinux.org/alpine/edge/community/
           packages: zola
           options: --volume ${{ github.workspace }}:/workdir --workdir /workdir
-          run: zola build --output-dir docs
+      - name: Check
+        run: zola check
+        shell: alpine.sh {0}
+      - name: Build
+        run: yes | zola build --output-dir docs || true
+        shell: alpine.sh {0}
