@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: https://trottomv.me/sitemap.xml
+Sitemap: https://trottomv.github.io/sitemap.xml
