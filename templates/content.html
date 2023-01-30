@@ -91,7 +91,21 @@
     <!-- <p>docker | kubernetes | terrafom | postgresql | git | grafana | prometheus | github | gitlab</p> -->
   </div>
 </div>
-{% endmacro myexpertise %} {% macro projects() %}
+{% endmacro myexpertise %} {% macro mastodon() %}
+<div class="user-details">
+  <h1 class="text-uppercase">What I say</h1>
+  <div class="user-mastodon">
+    <iframe
+      allowfullscreen
+      sandbox="allow-top-navigation allow-scripts allow-popups allow-popups-to-escape-sandbox"
+      width="90%"
+      height="1024"
+      frameborder="0"
+      src="https://www.mastofeed.com/apiv2/feed?userurl=https%3A%2F%2Ffosstodon.org%2Fusers%2Ftrotto&theme=light&size=100&header=false&replies=false&boosts=false"
+    ></iframe>
+  </div>
+</div>
+{% endmacro mastodon %} {% macro projects() %}
 <div class="user-details">
   <h1>Featured Projects</h1>
 </div>
