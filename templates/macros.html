@@ -107,4 +107,13 @@
     ga("send", "pageview");
   }
 </script>
-{% endif %} {% endmacro google_analytics %}
+{% endif %} {% endmacro google_analytics %} {% macro umami_analytics() %}
+<!-- Umami Analytics -->
+{% if config.extra.umami_analytics.id %}
+<script
+  async
+  defer
+  data-website-id="{{ config.extra.umami_analytics.id }}"
+  src="{{ config.extra.umami_analytics.src }}"
+></script>
+{% endif %} {% endmacro umami_analytics %}
