@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://trottomv.github.io"
+base_url = "https://trottomv.me"
 title = "Matteo Vitali - sociologist and software developer"
 
 # Whether to automatically compile all Sass files in the sass directory
