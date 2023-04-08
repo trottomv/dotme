@@ -1,0 +1,45 @@
+# The URL the site will be built for
+base_url = "https://trottomv.me"
+title = "Matteo Vitali - sociologist and software developer"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+# The site theme to use.
+# theme = "particle-zola"
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+
+# The default language; used in feeds.
+default_language = "en"
+
+[extra]
+# User settings
+user_email = "trottomv@gmail.com"
+user_fullname = "Matteo Vitali"
+user_username = "trotto"
+user_company = "20tab"
+user_company_url = "https://www.20tab.com"
+user_description = "Sociologist by training, passionate about free software and open source..."
+user_github = "https://github.com/trottomv"
+user_gitlab = "https://gitlab.com/trottomv"
+user_linkedin = "https://www.linkedin.com/in/matteovitali/"
+user_mastodon = "https://fosstodon.org/@trotto"
+user_position = "🐍 pythonist developer and backend software engineer"
+user_title = "Sociologist and Software Developer"
+user_twitter = "https://twitter.com/trotto"
+user_piva = "02690180415"
+year = 2023
+
+# Google-analytics
+google_analytics.id = ""
+
+# Umami-analytics
+umami_analytics.id = ""
+umami_analytics.src = ""
