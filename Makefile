@@ -8,9 +8,17 @@ build:  ## Build public static files
 check:  ## Check zola configuration
 	zola check
 
+.PHONY: docker_build
+docker_build:  ## Build public static files with docker
+	docker run --rm -u "$(id -u):$(id -g)" -v $PWD:/app --workdir /app ghcr.io/getzola/zola:v0.17.1 build --force --output-dir docs 
+
 .PHONY: precommit
 precommit:  ## Fix code formatting and linting
 	pre-commit run --all-files
+
+.PHONY: precommit_update
+precommit_update:  ## Update pre_commit
+	python3 -m pre_commit autoupdate
 
 .PHONY: run
 run:  ## Run zola run server

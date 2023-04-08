@@ -1,12 +1,9 @@
-name: Zola on GitHub Pages
+name: Zola check
 
-on:
-  push:
-    branches:
-      - stage
+on: [push, pull_request]
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout stage
@@ -18,9 +15,10 @@ jobs:
             http://dl-cdn.alpinelinux.org/alpine/edge/community/
           packages: zola
           options: --volume ${{ github.workspace }}:/workdir --workdir /workdir
-      - name: Check
-        run: zola check
+      - name: Check develop
+        run: zola --config config.develop.toml check
         shell: alpine.sh {0}
-      - name: Build
-        run: yes | zola build --output-dir docs || true
+      - name: Check stage
+        run: zola --config config.stage.toml check
         shell: alpine.sh {0}
+    
