@@ -11,6 +11,9 @@ build_search_index = false
 # The site theme to use.
 # theme = "particle-zola"
 
+# The robots.txt file will be built from
+robots_txt = "robots.stage.txt"
+
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
