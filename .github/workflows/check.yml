@@ -1,24 +1,21 @@
 name: Zola check
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   check:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/trottomv/zola:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
+      options: --volume ${{ github.workspace }}:/app
     steps:
-      - name: Checkout stage
+      - name: Checkout
         uses: actions/checkout@v3.0.0
-      - name: Setup alpine
-        uses: jirutka/setup-alpine@v1
-        with:
-          extra-repositories: |
-            http://dl-cdn.alpinelinux.org/alpine/edge/community/
-          packages: zola
-          options: --volume ${{ github.workspace }}:/workdir --workdir /workdir
       - name: Check develop
         run: zola --config config.develop.toml check
-        shell: alpine.sh {0}
       - name: Check stage
         run: zola --config config.stage.toml check
-        shell: alpine.sh {0}
     
