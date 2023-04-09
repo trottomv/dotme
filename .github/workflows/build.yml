@@ -9,22 +9,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/trottomv/zola:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
+      options: --volume ${{ github.workspace }}:/app
     steps:
-      - name: Checkout stage
+      - name: Checkout
         uses: actions/checkout@v3.0.0
-      - name: Setup alpine
-        uses: jirutka/setup-alpine@v1
-        with:
-          extra-repositories: |
-            http://dl-cdn.alpinelinux.org/alpine/edge/community/
-          packages: zola
-          options: --volume ${{ github.workspace }}:/workdir --workdir /workdir
       - name: Check
         run: zola --config config.${{ github.ref_name }}.toml check
-        shell: alpine.sh {0}
       - name: Build
-        run: yes | zola --config config.${{ github.ref_name }}.toml build --force --output-dir docs || true
-        shell: alpine.sh {0}
+        run: zola --config config.${{ github.ref_name }}.toml build --force --output-dir docs
       - name: Commit build
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
