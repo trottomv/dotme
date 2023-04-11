@@ -13,7 +13,7 @@ jobs:
       options: --volume ${{ github.workspace }}:/app
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.0.0
+        uses: actions/checkout@v3
       - name: Check develop
         run: zola --config config.develop.toml check
       - name: Check stage
