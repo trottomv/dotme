@@ -3,8 +3,8 @@ name: Zola build
 on:
   push:
     branches:
-      - develop
-      - stage
+    - develop
+    - stage
 
 jobs:
   build:
@@ -16,19 +16,19 @@ jobs:
         password: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
       options: --volume ${{ github.workspace }}:/app
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3.0.0
-      - name: Check
-        run: zola --config config.${{ github.ref_name }}.toml check
-      - name: Build
-        run: zola --config config.${{ github.ref_name }}.toml build --force --output-dir docs
-      - name: Commit build
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -a -m "Build ${{ github.ref_name }}"
-      - name: Push build
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref_name }}
+    - name: Checkout
+      uses: actions/checkout@v3.0.0
+    - name: Check
+      run: zola --config config.${{ github.ref_name }}.toml check
+    - name: Build
+      run: zola --config config.${{ github.ref_name }}.toml build --force --output-dir docs
+    - name: Commit build
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -a -m "Build ${{ github.ref_name }}"
+    - name: Push build
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref_name }}
