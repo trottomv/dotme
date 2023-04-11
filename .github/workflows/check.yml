@@ -12,9 +12,9 @@ jobs:
         password: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
       options: --volume ${{ github.workspace }}:/app
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3.0.0
-      - name: Check develop
-        run: zola --config config.develop.toml check
-      - name: Check stage
-        run: zola --config config.stage.toml check
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Check develop
+      run: zola --config config.develop.toml check
+    - name: Check stage
+      run: zola --config config.stage.toml check
