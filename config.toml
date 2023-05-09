@@ -11,9 +11,6 @@ build_search_index = false
 # The site theme to use.
 # theme = "particle-zola"
 
-# The robots.txt file will be built from
-robots_txt = "robots.develop.txt"
-
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
@@ -44,5 +41,5 @@ year = 2023
 google_analytics.id = ""
 
 # Umami-analytics
-umami_analytics.id = ""
-umami_analytics.src = ""
+umami_analytics.id = "94afc0b5-eb32-4bea-a1cc-5ec025706795"
+umami_analytics.src = "https://umami-zvro.onrender.com/umami.js"
