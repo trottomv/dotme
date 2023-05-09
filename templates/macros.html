@@ -136,8 +136,7 @@
 {% if config.extra.umami_analytics.id %}
 <script
   async
-  defer
-  data-website-id="{{ config.extra.umami_analytics.id }}"
   src="{{ config.extra.umami_analytics.src }}"
+  data-website-id="{{ config.extra.umami_analytics.id }}"
 ></script>
 {% endif %} {% endmacro umami_analytics %}
