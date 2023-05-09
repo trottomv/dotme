@@ -19,9 +19,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Check
-      run: zola --config config.${{ github.ref_name }}.toml check
+      run: zola --config config.toml check
     - name: Build
-      run: zola --config config.${{ github.ref_name }}.toml build --force --output-dir docs
+      run: zola --config config.toml build --force --output-dir docs
     - name: Push build
       run: |
         git config --global --add safe.directory "*"
