@@ -41,5 +41,5 @@ year = 2023
 google_analytics.id = ""
 
 # Umami-analytics
-umami_analytics.id = "94afc0b5-eb32-4bea-a1cc-5ec025706795"
-umami_analytics.src = "https://umami-zvro.onrender.com/umami.js"
+umami_analytics.id = ""
+umami_analytics.src = ""
