@@ -91,15 +91,66 @@
 {% endmacro myexpertise %} {% macro mastodon() %}
 <div class="user-details">
   <h1 class="text-uppercase">What I say</h1>
-  <div class="user-mastodon">
-    <iframe
-      allowfullscreen
-      sandbox="allow-top-navigation allow-scripts allow-popups allow-popups-to-escape-sandbox"
-      width="90%"
-      height="1024"
-      frameborder="0"
-      src="https://www.mastofeed.com/apiv2/feed?userurl=https%3A%2F%2Ffosstodon.org%2Fusers%2Ftrotto&theme=light&size=100&header=false&replies=false&boosts=true"
-    ></iframe>
+  <div class="user-mastodon" id="mastodon">
+    <div
+      class="mastodon-status"
+      v-for="(status, index) in statuses"
+      :key="index"
+      v-show="!status.in_reply_to_id || !status.in_reply_to_account_id"
+    >
+      <div v-if="status.reblog" class="reblog">
+        <i  class="fa fa-retweet status__prepend-icon fa-fw"></i>
+        <b>${ status.account.username }</b>
+        boosted
+      </div>
+      <div class="author">
+        <a
+          class="avatar"
+          :href="status.reblog && status.reblog.account.url || status.account.url"
+          target="_blank"
+        >
+          <img
+            :src="status.reblog && status.reblog.account.avatar || status.account.avatar"
+          >
+        </a>
+        <div class="author-info">
+          <a
+            class="author-displayname"
+            :href="status.reblog && status.reblog.account.url || status.account.url"
+            target="_blank"
+          >
+            <b>${ status.reblog && status.reblog.account.acct || status.account.acct }</b>
+            <div class="author-fullname">${ status.reblog && status.reblog.account.url || status.account.url }</div>
+          </a>
+        </div>
+      </div>
+      <div
+        class="content"
+        v-html="status.reblog && status.reblog.content || status.content"
+      >
+      </div>
+      <div
+        class="enclosures"
+        v-if="status.reblog && status.reblog.media_attachments.length > 0 || status.media_attachments && status.media_attachments.length > 0"
+      >
+        <a
+          class="enclosure"
+          :href="status.reblog && status.reblog.media_attachments[0].url || status.media_attachments[0].url"
+          target="_top"
+        >
+          <img :src="status.reblog && status.reblog.media_attachments[0].url || status.media_attachments[0].url">
+        </a>
+      </div>
+      <div class="created-at">
+        ${ status.formattedCreatedAt } |
+        <a
+          :href="status.reblog && status.reblog.url || status.url"
+          target="_blank"
+        >
+          <i class="fa-solid fa-external-link"></i>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 {% endmacro mastodon %} {% macro projects() %}
