@@ -3,11 +3,9 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>
     {% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}
   </title>
-
   <meta
     name="description"
     content="{% if page.description %}{{ page.description | striptags | trim | truncate(length=160) }}{% else %}{{ config.description }}{% endif %}"
@@ -23,8 +21,9 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
   />
-
   <link rel="stylesheet" href="main.css" />
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 </head>
 {% endmacro head %} {% macro footer() %}
 <footer class="footer">
@@ -33,6 +32,31 @@
     config.extra.user_fullname }} {{ config.extra.year }} | P.IVA {{
     config.extra.user_piva }}
   </p>
+  <script>
+   const app = Vue.createApp({
+      data() {
+        return {
+          statuses: [],
+        };
+      },
+      mounted() {
+        const mastodonApiUrl = 'https://fosstodon.org/api/v1/accounts/{{config.extra.mastodon_account_id}}/statuses';
+        fetch(mastodonApiUrl)
+          .then(response => response.json())
+          .then(data => {
+            this.statuses = data.map(status => ({
+              ...status,
+              formattedCreatedAt: moment(status.created_at).format('MMMM D, YYYY'),
+            }));
+          })
+          .catch(error => {
+            console.error('Error on Mastodon API request:', error);
+          });
+        },
+      });
+    app.config.compilerOptions.delimiters = ['${', '}'];
+    app.mount('#mastodon');
+  </script>
   <script
     type="text/javascript"
     src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?theme=grey&customize=1&always=1&noConfirm=1&hideDetailsBtn=1&showPolicyLink=1"
