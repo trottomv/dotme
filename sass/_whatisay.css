@@ -37,6 +37,7 @@
 .user-mastodon .content {
     text-align: left;
     font-size: 1.5rem;
+    word-break: break-word;
 }
 
 .user-mastodon .enclosure img {
