@@ -4,29 +4,31 @@
 
 .user-mastodon .author {
     display: flex;
+    margin-bottom: 1rem;
     margin: 0;
     padding: 0;
-    margin-bottom: 1rem;
 }
 
 .user-mastodon .avatar {
-    width: 3rem;
     height: 3rem;
+    width: 3rem;
 }
 
 .user-mastodon .avatar img {
-    width: 3rem;
-    height: 3rem;
-    border: none;
     border-radius: 15%;
+    border: none;
+    height: 2.8rem;
+    width: 2.8rem;
 }
 
 .user-mastodon .author-info {
-    margin: 0 1rem;
     display: flex;
     flex-direction: column;
+    font-size: 0.8rem;
     justify-content: center;
+    margin: 0 0.5rem;
     text-align: left;
+    word-break: break-word;
 }
 
 .user-mastodon .author-info .author-displayname {
@@ -35,8 +37,9 @@
 }
 
 .user-mastodon .content {
-    text-align: left;
     font-size: 1.5rem;
+    text-align: left;
+    word-break: break-word;
 }
 
 .user-mastodon .enclosure img {
@@ -47,8 +50,8 @@
 }
 
 .user-mastodon .created-at {
-    text-align: right;
     padding-top: 1rem;
+    text-align: right;
 }
 
 .user-mastodon .created-at a {
@@ -57,7 +60,7 @@
 }
 
 .user-mastodon .mastodon-status {
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
     border-bottom: solid 1px #999;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
 }
