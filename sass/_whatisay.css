@@ -24,7 +24,7 @@
 .user-mastodon .author-info {
     display: flex;
     flex-direction: column;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     justify-content: center;
     margin: 0 0.5rem;
     text-align: left;
@@ -37,7 +37,7 @@
 }
 
 .user-mastodon .content {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     text-align: left;
     word-break: break-word;
 }
@@ -50,7 +50,6 @@
 }
 
 .user-mastodon .created-at {
-    font-size: 0.9rem;
     padding-top: 1rem;
     text-align: right;
 }

@@ -1,6 +1,6 @@
 {% macro about() %}
 <div class="user-details">
-  <h1 class="text-uppercase">Who am I</h1>
+  <h1 id="about" class="text-uppercase">Who am I</h1>
   <p>{{ config.extra.user_description }}</p>
   <p>
     {{ config.extra.user_position }} @<a
@@ -38,7 +38,7 @@
 </div>
 {% endmacro about %} {% macro myexpertise() %}
 <div class="user-details">
-  <h1 class="text-uppercase">My Expertise</h1>
+  <h1 id="myexpertise" class="text-uppercase">My Expertise</h1>
 </div>
 <div class="user">
   <div class="tech">
@@ -90,7 +90,7 @@
 </div>
 {% endmacro myexpertise %} {% macro mastodon() %}
 <div class="user-details">
-  <h1 class="text-uppercase">What I say</h1>
+  <h1 id="whatisay" class="text-uppercase">What I say</h1>
   <div class="user-mastodon" id="mastodon">
     <div
       class="mastodon-status"
