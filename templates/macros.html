@@ -24,6 +24,13 @@
   <link rel="stylesheet" href="main.css" />
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+  <!-- GSAP https://gsap.com/docs/v3/ -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
 </head>
 {% endmacro head %} {% macro footer() %}
 <footer class="footer">
@@ -89,6 +96,57 @@
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="js/sweet-scroll.min.js"></script>
 <script src="js/main.js"></script>
+<script>
+  // GSAP https://gsap.com/docs/v3
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+    gsap.registerPlugin(ScrollToPlugin,TextPlugin,ScrollTrigger)
+    gsap.to(".header-logo", {rotation: 360, duration: 3});
+    gsap.to(".site-title", {
+      duration: 3,
+      text: "{{ config.extra.user_fullname }}",
+      ease: "none",
+    });
+    gsap.to(".site-description", {
+      duration: 3,
+      text: "{{ config.extra.user_title }}",
+      ease: "none",
+    });
+    gsap.from("#about", {
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top 90%",
+        end: "top 20%",
+        scrub: true,
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1000,
+    });
+    gsap.from("#myexpertise", {
+      scrollTrigger: {
+        trigger: "#myexpertise",
+        start: "top 90%",
+        end: "top 20%",
+        scrub: true,
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1000,
+    });
+    gsap.from("#whatisay", {
+      scrollTrigger: {
+        trigger: "#whatisay",
+        start: "top 90%",
+        end: "top 20%",
+        scrub: true,
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1000,
+    });
+  });
+</script>
 {% endmacro footer %} {% macro header() %}
 <div id="particles-js">
   <div class="header">
@@ -96,8 +154,8 @@
       <span class="site-logo"
         ><img class="header-logo" src="img/labirint-w.png" alt="logo"
       /></span>
-      <span class="site-title">{{ config.extra.user_fullname }}</span>
-      <span class="site-description">{{ config.extra.user_title }}</span>
+      <span class="site-title">{{ config.extra.pre_user_fullname }}</span>
+      <span class="site-description">{{ config.extra.pre_user_title }}</span>
     </h1>
     <div class="header-icons">
       <a
