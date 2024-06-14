@@ -26,6 +26,13 @@
   <link rel="stylesheet" href="main.css" />
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+  <!-- GSAP https://gsap.com/docs/v3/ -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
 </head>
 
 
@@ -37,8 +44,8 @@
       <span class="site-logo"
         ><img class="header-logo" src="img/labirint-w.png" alt="logo"
       /></span>
-      <span class="site-title">Matteo Vitali</span>
-      <span class="site-description">Sociologist and Software Developer</span>
+      <span class="site-title">trotto</span>
+      <span class="site-description">Sociologist</span>
     </h1>
     <div class="header-icons">
       <a
@@ -71,7 +78,7 @@
 
     <section id="about">
 <div class="user-details">
-  <h1 class="text-uppercase">Who am I</h1>
+  <h1 id="about" class="text-uppercase">Who am I</h1>
   <p>Sociologist by training, passionate about free software and open source...</p>
   <p>
     🐍 pythonist developer and backend software engineer @<a
@@ -111,7 +118,7 @@
 
     <section id="myexpertise">
 <div class="user-details">
-  <h1 class="text-uppercase">My Expertise</h1>
+  <h1 id="myexpertise" class="text-uppercase">My Expertise</h1>
 </div>
 <div class="user">
   <div class="tech">
@@ -165,7 +172,7 @@
 
     <section id="whatisay">
 <div class="user-details">
-  <h1 class="text-uppercase">What I say</h1>
+  <h1 id="whatisay" class="text-uppercase">What I say</h1>
   <div class="user-mastodon" id="mastodon">
     <div
       class="mastodon-status"
@@ -235,7 +242,7 @@
      
 <footer class="footer">
   <p>
-    Copyleft <i class="fa fa-copyright fa-rotate-180"></i> Matteo Vitali 2023 | P.IVA 02690180415
+    Copyleft <i class="fa fa-copyright fa-rotate-180"></i> Matteo Vitali 2024 | P.IVA 02690180415
   </p>
   <script>
    const app = Vue.createApp({
@@ -294,6 +301,57 @@
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="js/sweet-scroll.min.js"></script>
 <script src="js/main.js"></script>
+<script>
+  // GSAP https://gsap.com/docs/v3
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+    gsap.registerPlugin(ScrollToPlugin,TextPlugin,ScrollTrigger)
+    gsap.to(".header-logo", {rotation: 360, duration: 3});
+    gsap.to(".site-title", {
+      duration: 3,
+      text: "Matteo Vitali",
+      ease: "none",
+    });
+    gsap.to(".site-description", {
+      duration: 3,
+      text: "Backend Developer and DevOps",
+      ease: "none",
+    });
+    gsap.from("#about", {
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top 90%",
+        end: "top 20%",
+        scrub: true,
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1000,
+    });
+    gsap.from("#myexpertise", {
+      scrollTrigger: {
+        trigger: "#myexpertise",
+        start: "top 90%",
+        end: "top 20%",
+        scrub: true,
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1000,
+    });
+    gsap.from("#whatisay", {
+      scrollTrigger: {
+        trigger: "#whatisay",
+        start: "top 90%",
+        end: "top 20%",
+        scrub: true,
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1000,
+    });
+  });
+</script>
  
 <!-- Google Analytics -->
 
