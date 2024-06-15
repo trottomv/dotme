@@ -3,8 +3,8 @@ name: Zola build
 on:
   push:
     branches:
-    - develop
     - stage
+    - main
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
       options: --volume ${{ github.workspace }}:/app
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Check
       run: zola --config config.toml check
     - name: Build
