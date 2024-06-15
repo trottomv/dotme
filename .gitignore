@@ -1,4 +1,5 @@
 .vscode
 *.bak
-public/
 docs/
+node_modules/
+public/

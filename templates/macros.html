@@ -24,10 +24,8 @@
   <link rel="stylesheet" href="main.css" />
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-
   <!-- GSAP https://gsap.com/docs/v3/ -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
@@ -40,29 +38,32 @@
     config.extra.user_piva }}
   </p>
   <script>
-   const app = Vue.createApp({
+    const app = Vue.createApp({
       data() {
         return {
           statuses: [],
         };
       },
       mounted() {
-        const mastodonApiUrl = 'https://fosstodon.org/api/v1/accounts/{{config.extra.mastodon_account_id}}/statuses';
+        const mastodonApiUrl =
+          "https://fosstodon.org/api/v1/accounts/{{config.extra.mastodon_account_id}}/statuses";
         fetch(mastodonApiUrl)
-          .then(response => response.json())
-          .then(data => {
-            this.statuses = data.map(status => ({
+          .then((response) => response.json())
+          .then((data) => {
+            this.statuses = data.map((status) => ({
               ...status,
-              formattedCreatedAt: moment(status.created_at).format('MMMM D, YYYY'),
+              formattedCreatedAt: moment(status.created_at).format(
+                "MMMM D, YYYY",
+              ),
             }));
           })
-          .catch(error => {
-            console.error('Error on Mastodon API request:', error);
+          .catch((error) => {
+            console.error("Error on Mastodon API request:", error);
           });
-        },
-      });
-    app.config.compilerOptions.delimiters = ['${', '}'];
-    app.mount('#mastodon');
+      },
+    });
+    app.config.compilerOptions.delimiters = ["${", "}"];
+    app.mount("#mastodon");
   </script>
   <script
     type="text/javascript"
@@ -98,19 +99,30 @@
 <script src="js/main.js"></script>
 <script>
   // GSAP https://gsap.com/docs/v3
-
   document.addEventListener("DOMContentLoaded", (event) => {
-    gsap.registerPlugin(ScrollToPlugin,TextPlugin,ScrollTrigger)
-    gsap.to(".header-logo", {rotation: 360, duration: 3});
+    gsap.registerPlugin(ScrollToPlugin, TextPlugin, ScrollTrigger);
+    gsap.to(".header-logo", {
+      duration: 2,
+      repeat: -1,
+      repeatDelay: 3,
+      rotation: 360,
+      yoyo: true,
+    });
     gsap.to(".site-title", {
-      duration: 3,
-      text: "{{ config.extra.user_fullname }}",
+      duration: 2,
       ease: "none",
+      repeat: -1,
+      repeatDelay: 3,
+      text: "{{ config.extra.user_fullname }}",
+      yoyo: true,
     });
     gsap.to(".site-description", {
-      duration: 3,
-      text: "{{ config.extra.user_title }}",
+      duration: 2,
       ease: "none",
+      repeat: -1,
+      repeatDelay: 3,
+      text: "{{ config.extra.user_title }}",
+      yoyo: true,
     });
     gsap.from("#about", {
       scrollTrigger: {
@@ -119,9 +131,9 @@
         end: "top 20%",
         scrub: true,
       },
+      duration: 1000,
       opacity: 0,
       y: 50,
-      duration: 1000,
     });
     gsap.from("#myexpertise", {
       scrollTrigger: {
@@ -130,9 +142,9 @@
         end: "top 20%",
         scrub: true,
       },
+      duration: 1000,
       opacity: 0,
       y: 50,
-      duration: 1000,
     });
     gsap.from("#whatisay", {
       scrollTrigger: {
@@ -141,9 +153,9 @@
         end: "top 20%",
         scrub: true,
       },
+      duration: 1000,
       opacity: 0,
       y: 50,
-      duration: 1000,
     });
   });
 </script>
