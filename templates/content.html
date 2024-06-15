@@ -99,7 +99,7 @@
       v-show="!status.in_reply_to_id || !status.in_reply_to_account_id"
     >
       <div v-if="status.reblog" class="reblog">
-        <i  class="fa fa-retweet status__prepend-icon fa-fw"></i>
+        <i class="fa fa-retweet status__prepend-icon fa-fw"></i>
         <b>${ status.account.username }</b>
         boosted
       </div>
@@ -111,7 +111,7 @@
         >
           <img
             :src="status.reblog && status.reblog.account.avatar || status.account.avatar"
-          >
+          />
         </a>
         <div class="author-info">
           <a
@@ -119,16 +119,21 @@
             :href="status.reblog && status.reblog.account.url || status.account.url"
             target="_blank"
           >
-            <b>${ status.reblog && status.reblog.account.acct || status.account.acct }</b>
-            <div class="author-fullname">${ status.reblog && status.reblog.account.url || status.account.url }</div>
+            <b
+              >${ status.reblog && status.reblog.account.acct ||
+              status.account.acct }</b
+            >
+            <div class="author-fullname">
+              ${ status.reblog && status.reblog.account.url ||
+              status.account.url }
+            </div>
           </a>
         </div>
       </div>
       <div
         class="content"
         v-html="status.reblog && status.reblog.content || status.content"
-      >
-      </div>
+      ></div>
       <div
         class="enclosures"
         v-if="status.reblog && status.reblog.media_attachments.length > 0 || status.media_attachments && status.media_attachments.length > 0"
@@ -138,7 +143,9 @@
           :href="status.reblog && status.reblog.media_attachments[0].url || status.media_attachments[0].url"
           target="_top"
         >
-          <img :src="status.reblog && status.reblog.media_attachments[0].url || status.media_attachments[0].url">
+          <img
+            :src="status.reblog && status.reblog.media_attachments[0].url || status.media_attachments[0].url"
+          />
         </a>
       </div>
       <div class="created-at">
