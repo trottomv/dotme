@@ -313,13 +313,6 @@
   // GSAP https://gsap.com/docs/v3
   document.addEventListener("DOMContentLoaded", (event) => {
     gsap.registerPlugin(ScrollToPlugin, TextPlugin, ScrollTrigger);
-    gsap.to(".header-logo", {
-      duration: 2,
-      repeat: -1,
-      repeatDelay: 3,
-      rotation: 360,
-      yoyo: true,
-    });
     gsap.to(".site-title", {
       duration: 2,
       ease: "none",
