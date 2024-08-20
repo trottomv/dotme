@@ -2,7 +2,7 @@
 
 .PHONY: build
 build:  ## Build public static files
-	zola --config config.develop.toml build --output-dir docs
+	zola --config config.toml build --output-dir docs --force
 
 .PHONY: check
 check:  ## Check zola configuration
