@@ -43,7 +43,7 @@ google_analytics.id = ""
 
 # Umami-analytics
 umami_analytics.id = "bad61348-3772-4867-b53f-bcd92df272ab"
-umami_analytics.src = "https://analytics.eu.umami.is/script.js"
+umami_analytics.src = "https://cloud.umami.is/script.js"
 
 # Mastodon
 mastodon_account_id = "109363880108649306"
