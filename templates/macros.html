@@ -222,7 +222,7 @@
 <!-- Umami Analytics -->
 {% if config.extra.umami_analytics.id %}
 <script
-  async
+  defer
   src="{{ config.extra.umami_analytics.src }}"
   data-website-id="{{ config.extra.umami_analytics.id }}"
 ></script>
