@@ -32,7 +32,6 @@ user_mastodon = "https://fosstodon.org/@trotto"
 user_position = "🐍 Pythonist Developer, Backend Software Engineer and DevOps"
 user_title = "Software Developer"
 user_title_pre = "-"
-user_twitter = "https://twitter.com/trotto"
 user_piva = "02690180415"
 
 # Google-analytics
