@@ -46,7 +46,7 @@
     width: 100%;
     height: 35rem;
     object-fit: cover;
-    object-position: 100% 45%;
+    object-position: center;
 }
 
 .user-mastodon .created-at {
