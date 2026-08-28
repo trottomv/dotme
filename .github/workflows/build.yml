@@ -9,19 +9,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/trottomv/zola:latest
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
-      options: --volume ${{ github.workspace }}:/app
+    permissions:
+      contents: write
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
     - name: Check
-      run: zola --config config.toml check
+      run: docker run --rm -u "$(id -u):$(id -g)" -v $PWD:/app --workdir /app ghcr.io/getzola/zola:v0.22.1 check
     - name: Build
-      run: zola --config config.toml build --force --output-dir docs
+      run: docker run --rm -u "$(id -u):$(id -g)" -v $PWD:/app --workdir /app ghcr.io/getzola/zola:v0.22.1 build --force --output-dir docs
     - name: Push build
       run: |
         git config --global --add safe.directory "*"

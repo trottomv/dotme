@@ -42,6 +42,17 @@
     word-break: break-word;
 }
 
+.user-mastodon .link-preview {
+    margin: 0.5rem 0;
+    text-align: left;
+}
+
+.user-mastodon .link-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .user-mastodon .enclosure img {
     width: 100%;
     height: 35rem;

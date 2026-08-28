@@ -128,6 +128,29 @@
         v-html="status.reblog && status.reblog.content || status.content"
       ></div>
       <div
+        class="link-preview"
+        v-if="(status.reblog && status.reblog.card) || status.card"
+      >
+        <a
+          :href="status.reblog && status.reblog.card
+            ? status.reblog.card.url
+            : status.card.url"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            v-if="(status.reblog && status.reblog.card
+              ? status.reblog.card.image
+              : status.card.image)"
+            :src="status.reblog && status.reblog.card
+              ? status.reblog.card.image
+              : status.card.image"
+            alt=""
+            class="link-preview-image"
+          />
+        </a>
+      </div>
+      <div
         class="enclosures"
         v-if="status.reblog && status.reblog.media_attachments.length > 0 || status.media_attachments && status.media_attachments.length > 0"
       >

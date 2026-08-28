@@ -10,7 +10,7 @@ check:  ## Check zola configuration
 
 .PHONY: docker_build
 docker_build:  ## Build public static files with docker
-	docker run --rm -u "$(id -u):$(id -g)" -v $PWD:/app --workdir /app ghcr.io/getzola/zola:v0.17.1 build --force --output-dir docs
+	docker run --rm -u "$(id -u):$(id -g)" -v $PWD:/app --workdir /app ghcr.io/getzola/zola:v0.22.1 build --force --output-dir docs
 
 .PHONY: precommit
 precommit:  ## Fix code formatting and linting
