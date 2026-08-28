@@ -208,41 +208,84 @@
         v-html="status.reblog && status.reblog.content || status.content"
       ></div>
       <div
-        class="link-preview"
-        v-if="(status.reblog && status.reblog.card) || status.card"
+        class="status-card"
+        v-if="(status.reblog && status.reblog.card) || status.card || (status.reblog && status.reblog.media_attachments.length > 0) || (status.media_attachments && status.media_attachments.length > 0)"
       >
-        <a
-          :href="status.reblog && status.reblog.card
-            ? status.reblog.card.url
-            : status.card.url"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
+          class="link-preview"
+          v-if="(status.reblog && status.reblog.card) || status.card"
         >
-          <img
-            v-if="(status.reblog && status.reblog.card
-              ? status.reblog.card.image
-              : status.card.image)"
-            :src="status.reblog && status.reblog.card
-              ? status.reblog.card.image
-              : status.card.image"
-            alt=""
-            class="link-preview-image"
-          />
-        </a>
-      </div>
-      <div
-        class="enclosures"
-        v-if="status.reblog && status.reblog.media_attachments.length > 0 || status.media_attachments && status.media_attachments.length > 0"
-      >
-        <a
-          class="enclosure"
-          :href="status.reblog && status.reblog.media_attachments[0].url || status.media_attachments[0].url"
-          target="_top"
+          <a
+            class="link-preview-link"
+            :href="status.reblog && status.reblog.card
+              ? status.reblog.card.url
+              : status.card.url"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              v-if="(status.reblog && status.reblog.card
+                ? status.reblog.card.image
+                : status.card.image)"
+              :src="status.reblog && status.reblog.card
+                ? status.reblog.card.image
+                : status.card.image"
+              alt=""
+              class="link-preview-image"
+            />
+            <div
+              class="link-preview-text"
+              v-if="(status.reblog && status.reblog.card
+                ? status.reblog.card.title
+                : status.card.title) || (status.reblog && status.reblog.card
+                ? status.reblog.card.description
+                : status.card.description)"
+            >
+              <h4
+                v-if="status.reblog && status.reblog.card
+                  ? status.reblog.card.title
+                  : status.card.title"
+              >
+                ${ status.reblog && status.reblog.card
+                  ? status.reblog.card.title
+                  : status.card.title }
+              </h4>
+              <p
+                v-if="status.reblog && status.reblog.card
+                  ? status.reblog.card.description
+                  : status.card.description"
+              >
+                ${ status.reblog && status.reblog.card
+                  ? status.reblog.card.description
+                  : status.card.description }
+              </p>
+              <span
+                class="link-preview-provider"
+                v-if="status.reblog && status.reblog.card
+                  ? status.reblog.card.provider_name
+                  : status.card.provider_name"
+              >
+                ${ status.reblog && status.reblog.card
+                  ? status.reblog.card.provider_name
+                  : status.card.provider_name }
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="enclosures"
+          v-if="status.reblog && status.reblog.media_attachments.length > 0 || status.media_attachments && status.media_attachments.length > 0"
         >
-          <img
-            :src="status.reblog && status.reblog.media_attachments[0].url || status.media_attachments[0].url"
-          />
-        </a>
+          <a
+            class="enclosure"
+            :href="status.reblog && status.reblog.media_attachments[0].url || status.media_attachments[0].url"
+            target="_top"
+          >
+            <img
+              :src="status.reblog && status.reblog.media_attachments[0].url || status.media_attachments[0].url"
+            />
+          </a>
+        </div>
       </div>
       <div class="created-at">
         ${ status.formattedCreatedAt } |
